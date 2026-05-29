@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ольга Никонова — Операционный менеджер | Бизнес-аналитик</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            color: #2d3436;
+            line-height: 1.7;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #2980b9 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero .location {
+            font-size: 1em;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .hero .location span {
+            margin: 0 10px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn.primary {
+            background: white;
+            color: #2c3e50;
+        }
+
+        .contact-btn.secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-text {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #555;
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #3498db;
+        }
+
+        .about-text strong {
+            color: #2c3e50;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .skill-card:nth-child(1) { border-top-color: #3498db; }
+        .skill-card:nth-child(2) { border-top-color: #2ecc71; }
+        .skill-card:nth-child(3) { border-top-color: #e67e22; }
+        .skill-card:nth-child(4) { border-top-color: #9b59b6; }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .skill-card .icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.15em;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #3498db, #2ecc71);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 35px;
+            width: 12px;
+            height: 12px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 3px solid #f8f9fa;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .company {
+            font-size: 1em;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .period {
+            font-size: 0.85em;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-item ul li {
+            padding: 5px 0 5px 20px;
+            position: relative;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .timeline-item ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #ebf5fb;
+            color: #2980b9;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+            margin: 2px;
+        }
+
+        .tag.green {
+            background: #e8f8f5;
+            color: #27ae60;
+        }
+
+        .tag.orange {
+            background: #fef5e7;
+            color: #e67e22;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .edu-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .edu-card .edu-icon {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .edu-card h3 {
+            font-size: 1.05em;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .edu-card p {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* ===== STRENGTHS ===== */
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .strength-item {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .strength-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .strength-item .strength-icon {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+        }
+
+        .strength-item h3 {
+            font-size: 1em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .strength-item p {
+            font-size: 0.85em;
+            color: #777;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        .footer-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-contacts a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .footer-contacts a:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.85em;
+            opacity: 0.5;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2em; }
+            .hero .subtitle { font-size: 1.1em; }
+            .hero { padding: 50px 20px; }
+            section { padding: 40px 0; }
+            .section-title { font-size: 1.5em; }
+            .about-text { padding: 25px; }
+            .timeline { padding-left: 30px; }
+            .timeline-item { padding: 20px; }
+            .contact-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Ольга Никонова</h1>
+            <div class="subtitle">Операционный менеджер • Бизнес-аналитик</div>
+            <div class="location">
+                <span>📍 Москва</span>
+                <span>💻 Удалённая работа</span>
+                <span>🌍 English fluent</span>
+            </div>
+            <div class="contact-buttons">
+                <a href="mailto:nikonovaolga8811@gmail.com" class="contact-btn primary">📧 Написать</a>
+                <a href="tel:+79168628811" class="contact-btn secondary">📱 Позвонить</a>
+                <a href="https://t.me/" class="contact-btn secondary">💬 Telegram</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section>
+        <div class="container">
+            <h2 class="section-title fade-in">Обо мне</h2>
+            <div class="about-text fade-in">
+                Специалист с опытом в <strong>международной логистике, ВЭД и управлении операционными процессами</strong>. 
+                Выстраивала полные цепочки поставок из Китая, Европы и США. 
+                Перестраивала логистику в условиях санкций — находила новых поставщиков, 
+                организовывала параллельный импорт, подбирала аналоги санкционного оборудования.
+                <br><br>
+                Умею анализировать бизнес-процессы, находить узкие места и предлагать решения. 
+                На фрилансе работала с владельцами бизнеса: проводила глубинные интервью, 
+                выявляла проблемы не только в своей зоне ответственности, но и в смежных процессах.
+                <br><br>
+                <strong>Свободный английский</strong> — переговоры с международными партнёрами, 
+                перевод контрактов, деловая переписка. 
+                Образование: <strong>МГУ, Колледж МИД, РЭУ Плеханова</strong>.
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section style="background: #f1f2f6;">
+        <div class="container">
+            <h2 class="section-title fade-in">Ключевые компетенции</h2>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="icon">⚙️</div>
+                    <h3>Операционное управление</h3>
+                    <p>Управление цепочками поставок из Китая, Европы и США. 
+                       Координация подрядчиков и команд. Контроль полного цикла 
+                       от поиска поставщика до доставки. Импортозамещение и параллельный импорт.</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="icon">📊</div>
+                    <h3>Анализ процессов</h3>
+                    <p>Выявление узких мест и оптимизация. Анализ эффективности 
+                       и корректировка стратегии. Сбор требований через интервью 
+                       со стейкхолдерами. Работа с большими объёмами информации.</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="icon">🌍</div>
+                    <h3>Международные коммуникации</h3>
+                    <p>Свободный английский: переговоры, переводы контрактов, 
+                       деловая переписка. Опыт работы с партнёрами из Китая, 
+                       Европы, США. Взаимодействие с брокерами и таможней.</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="icon">🛠️</div>
+                    <h3>Инструменты</h3>
+                    <p>Google Workspace (Таблицы, Документы). Canva для визуализации. 
+                       ChatGPT и нейросети. CRM и мессенджеры. 
+                       Изучаю: SQL, Power BI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+        <div class="container">
+            <h2 class="section-title fade-in">Опыт работы</h2>
+            <div class="timeline">
+
+                <div class="timeline-item fade-in">
+                    <h3>Менеджер по закупкам и логистике</h3>
+                    <div class="company">ООО «КИП Сервис» • удалённо</div>
+                    <div class="period">Москва</div>
+                    <ul>
+                        <li>Организовала закупки оборудования для хлебозаводов и пекарен на внутреннем и международном рынках</li>
+                        <li>Выстроила процесс подбора аналогов санкционного оборудования — нашла замены через российских производителей и поставщиков из Китая</li>
+                        <li>Работала с параллельным импортом: поиск логистических путей, работа с брокерами в Китае и Европе</li>
+                        <li>Координировала полный цикл поставки от запроса до доставки заказчику</li>
+                    </ul>
+                    <div style="margin-top: 12px;">
+                        <span class="tag">Импортозамещение</span>
+                        <span class="tag">Параллельный импорт</span>
+                        <span class="tag green">Закупки</span>
+                        <span class="tag orange">Китай</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <h3>Менеджер по логистике и ВЭД</h3>
+                    <div class="company">ООО «Суши Маркет»</div>
+                    <div class="period">Москва</div>
+                    <ul>
+                        <li>Выстроила цепочку поставок продуктов из Китая, Европы и США</li>
+                        <li>Организовывала морские перевозки полного цикла: фрахт контейнеров, контроль перемещения, таможенное оформление</li>
+                        <li>Добилась скидок, сокращения сроков поставки и отсрочек платежей в переговорах с поставщиками</li>
+                        <li>Координировала транспортировку из портов СПБ и Владивосток</li>
+                        <li>Оформляла сертификаты на продукцию (РСТ, ЕАС)</li>
+                    </ul>
+                    <div style="margin-top: 12px;">
+                        <span class="tag">ВЭД</span>
+                        <span class="tag">Морские перевозки</span>
+                        <span class="tag green">Таможня</span>
+                        <span class="tag orange">Переговоры</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <h3>Менеджер международного отдела перевозок</h3>
+                    <div class="company">ООО «Ас Интернешнл Мувинг»</div>
+                    <div class="period">Москва</div>
+                    <ul>
+                        <li>Управляла полным циклом международных перевозок: расчёт → подбор транспорта → координация → таможня → доставка</li>
+                        <li>Координировала работу упаковщиков, таможни, иностранных партнёров</li>
+                        <li>Контролировала каждый этап от упаковки в Москве до доставки в другую страну</li>
+                        <li>Вела всю коммуникацию с иностранными партнёрами на английском</li>
+                    </ul>
+                    <div style="margin-top: 12px;">
+                        <span class="tag">Международные перевозки</span>
+                        <span class="tag green">Английский язык</span>
+                        <span class="tag orange">Полный цикл</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <h3>Офис-менеджер</h3>
+                    <div class="company">ООО «Самсон Контролс»</div>
+                    <div class="period">Москва</div>
+                    <ul>
+                        <li>Подготовка и перевод контрактов и спецификаций (англ ↔ рус)</li>
+                        <li>Деловая переписка с иностранными коллегами</li>
+                        <li>Работа с таможенными документами</li>
+                        <li>Организация деловых поездок и встреч</li>
+                    </ul>
+                    <div style="margin-top: 12px;">
+                        <span class="tag">Документация</span>
+                        <span class="tag green">Переводы</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <h3>Контент-менеджер • Анализ бизнес-процессов</h3>
+                    <div class="company">Фриланс</div>
+                    <div class="period">2019 — настоящее время</div>
+                    <ul>
+                        <li>Проводила глубинные интервью с владельцами бизнеса: выявление целей, продукта, аудитории</li>
+                        <li>Анализировала показатели эффективности и корректировала стратегию на основе данных</li>
+                        <li>Выявляла проблемы в смежных процессах (CJM, скорость обработки заказов) и предлагала улучшения</li>
+                        <li>Создавала структурированную документацию: стратегии, планы, отчёты</li>
+                    </ul>
+                    <div style="margin-top: 12px;">
+                        <span class="tag">Аналитика</span>
+                        <span class="tag green">CJM</span>
+                        <span class="tag orange">Оптимизация</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section style="background: #f1f2f6;">
+        <div class="container">
+            <h2 class="section-title fade-in">Образование</h2>
+            <div class="edu-grid">
+                <div class="edu-card fade-in">
+                    <div class="edu-icon">🎓</div>
+                    <h3>ИСАА МГУ</h3>
+                    <p>Востоковедение, африканистика<br>Филологический факультет</p>
+                </div>
+                <div class="edu-card fade-in">
+                    <div class="edu-icon">🏛️</div>
+                    <h3>Колледж МИД РФ</h3>
+                    <p>Документационное обеспечение управления</p>
+                </div>
+                <div class="edu-card fade-in">
+                    <div class="edu-icon">📈</div>
+                    <h3>РЭУ им. Плеханова</h3>
+                    <p>Внешнеэкономическая деятельность</p>
+                </div>
+                <div class="edu-card fade-in">
+                    <div class="edu-icon">💡</div>
+                    <h3>ИМБА</h3>
+                    <p>Интернет-маркетолог<br><em>(в процессе обучения)</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRENGTHS -->
+    <section>
+        <div class="container">
+            <h2 class="section-title fade-in">Сильные стороны</h2>
+            <div class="strengths-grid">
+                <div class="strength-item fade-in">
+                    <div class="strength-icon">🔍</div>
+                    <h3>Внимание к деталям</h3>
+                    <p>Дотошность в работе с документами, данными и процессами</p>
+                </div>
+                <div class="strength-item fade-in">
+                    <div class="strength-icon">🧩</div>
+                    <h3>Системное мышление</h3>
+                    <p>Вижу процесс целиком и нахожу узкие места</p>
+                </div>
+                <div class="strength-item fade-in">
+                    <div class="strength-icon">🌐</div>
+                    <h3>Английский язык</h3>
+                    <p>Переговоры, переводы, деловая переписка</p>
+                </div>
+                <div class="strength-item fade-in">
+                    <div class="strength-icon">🚀</div>
+                    <h3>Быстрое обучение</h3>
+                    <p>Легко осваиваю новые инструменты и технологии</p>
+                </div>
+                <div class="strength-item fade-in">
+                    <div class="strength-icon">🤝</div>
+                    <h3>Коммуникации</h3>
+                    <p>Умею работать с людьми, выявлять потребности</p>
+                </div>
+                <div class="strength-item fade-in">
+                    <div class="strength-icon">💪</div>
+                    <h3>Решение проблем</h3>
+                    <p>Опыт работы в условиях санкций и неопределённости</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>Давайте работать вместе</h2>
+        <p>Открыта к предложениям по удалённой работе в сфере операционного управления и бизнес-анализа</p>
+        <div class="footer-contacts">
+            <a href="mailto:nikonovaolga8811@gmail.com">📧 nikonovaolga8811@gmail.com</a>
+            <a href="tel:+79168628811">📱 +7 (916) 862-88-11</a>
+        </div>
+        <div class="copyright">© 2025 Ольга Никонова</div>
+    </footer>
+
+    <!-- SCROLL ANIMATION -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
